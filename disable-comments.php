@@ -1,15 +1,19 @@
 <?php
 /*
-Plugin Name: Disable Comments
-Plugin URI: https://wordpress.org/plugins/disable-comments/
-Description: Allows administrators to globally disable comments on their site. Comments can be disabled according to post type.
-Version: 1.7
-Author: Samir Shah
-Author URI: http://www.rayofsolaris.net/
+Plugin Name: Afrozaar Disable Comments
+Plugin URI: https://github.com/dustanfranks/wp-plugin-disable-comments
+Description: Allows administrators to globally disable comments on their site. Comments can be disabled according to post type. Additionally redirects posts comments feed back to post itself.
+Version: 1.0
+Author: Afrozaar Consulting
+Author URI: http://afrozaar.com
 License: GPL2
 Text Domain: disable-comments
 Domain Path: /languages/
 */
+
+global $path;
+
+$GLOBALS['url_path'] = get_bloginfo('url') . $_SERVER['REQUEST_URI'];
 
 if( !defined( 'ABSPATH' ) )
 	exit;
@@ -235,8 +239,13 @@ class Disable_Comments {
 	 * Issue a 403 for all comment feed requests.
 	 */
 	public function filter_query() {
+		
 		if( is_comment_feed() ) {
-			wp_die( __( 'Comments are closed.' ), '', array( 'response' => 403 ) );
+
+			$pageURL = substr( $GLOBALS['url_path'], 0, strpos($GLOBALS['url_path'], '/feed') );
+    		header('Location: ' . $pageURL);
+    		die();
+			
 		}
 	}
 

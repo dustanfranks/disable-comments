@@ -1,3 +1,25 @@
+==== MODIFIED FOR AFROZAAR ====
+
+Contributor: Dustan Franks, Afrozaar Consulting 
+Github repo: https://github.com/dustanfranks/wp-plugin-disable-comments
+
+This is a fork of the Disable comments plugin for Wordpress. (see README details below for original author & plugin information)
+
+Requires afrozaar-redirect-urls plugin
+
+The only difference made in this fork is redirecting comment feed URLS on posts back to the original post itself instead of die(); and displaying a "comments are closed message"
+
+public function filter_query() {
+        
+        if( is_comment_feed() ) {
+
+            $pageURL = substr( $GLOBALS['path'], 0, strpos($GLOBALS['path'], '/feed') );
+            header('Location: ' . $pageURL);
+            die();
+            
+        }
+    }
+
 # Disable Comments for WordPress
 
 [![Build Status](https://travis-ci.org/solarissmoke/disable-comments.svg?branch=master)](https://travis-ci.org/solarissmoke/disable-comments)
