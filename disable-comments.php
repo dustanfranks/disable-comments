@@ -3,7 +3,7 @@
 Plugin Name: Afrozaar Disable Comments
 Plugin URI: https://github.com/dustanfranks/wp-plugin-disable-comments
 Description: Allows administrators to globally disable comments on their site. Comments can be disabled according to post type. Additionally redirects posts comments feed back to post itself.
-Version: 1.10
+Version: 1.12
 Author: Afrozaar Consulting
 Author URI: http://afrozaar.com
 License: GPL2
