@@ -3,7 +3,7 @@
 Contributor: Dustan Franks, Afrozaar Consulting 
 Github repo: https://github.com/dustanfranks/wp-plugin-disable-comments
 
-This is a fork of the Disable comments plugin for Wordpress. (see README details below for original author & plugin information)
+This is a fork of the Disable comments plugin for Wordpress. (see README details below for original author & plugin information.)
 
 The only difference made in this fork is redirecting comment feed URLS on posts back to the original post itself instead of die(); and displaying a "comments are closed message"
 
